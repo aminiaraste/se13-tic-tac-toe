@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tac.css">
+    <title>Tic-Tac-Toe</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <button onclick="show_index(0,0)" class="cell"></button>
+            </td>
+            <td>
+                <button onclick="show_index(0,1)" class="cell"></button>
+            </td>
+            <td>
+                <button onclick="show_index(0,2)" class="cell"></button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="show_index(1,0)" class="cell"></button>
+            </td>
+            <td>
+                <button onclick="show_index(1,1)" class="cell"></button>
+            </td>
+            <td>
+                <button onclick="show_index(1,2)" class="cell"></button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="show_index(2,0)" class="cell"></button>
+            </td>
+            <td>
+                <button onclick="show_index(2,1)" class="cell"></button>
+            </td>
+            <td>
+                <button onclick="show_index(2,2)" class="cell"></button>
+            </td>
+        </tr> 
+    </table>
+    <p> X scores : <b id="score-x">0</b></p>
+    <p> O scores : <b id="score-o">0</b></p>
+    <p> Draw : <b id="draw">0</b></p>
+    <script src="toe.js"></script>
+</body>
+</html>

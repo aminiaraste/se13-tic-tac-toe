@@ -1,0 +1,15 @@
+.cell{
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    font-size: x-large;
+}
+.X{
+    background-color: pink;
+    color: red;
+
+}
+.O{
+    background-color: skyblue;
+    color: darkblue ;
+}
