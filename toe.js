@@ -1,3 +1,4 @@
+
 var cells = document.getElementsByClassName("cell");
 var score_x = document.getElementById("score-x");
 var score_o = document.getElementById("score-o");
@@ -16,32 +17,77 @@ var flags =[
     [null, null, null],
     [null, null, null]
 ];
+var choice = 0;
+var gameEnd = false;
+function towPlayer(){
 
-var ply ="X";
-
+    choice = 1;
+    restart();
+  }
+function playWithCPU(){
+    choice = 2;
+    restart();
+  }
+var ply="X";
 function show_index(x,y){
-    if (flags[x][y] == null){
-        if(ply == "X"){
-            flags[x][y] = "X";
+    if (choice == 0){
+      alert("Plase select game mode first!");
+    }
+    else if (gameEnd == false){
+     if (flags[x][y]==null)
+    {
+        if (choice == 1){
+        if(ply=="X"){
+           turn.innerHTML="player X turns";
+            flags[x][y]="X";
             buttons[x][y].innerHTML="X";
             buttons[x][y].classList.add("X");
-            ply = "O";
+            ply="O";
         }
-        else if(ply == "O"){
-            flags[x][y] = "X";
+         else if(ply=="O"){
+            turn.innerHTML="player O turns";
+            flags[x][y]="O";
             buttons[x][y].innerHTML="O";
             buttons[x][y].classList.add("O");
-            ply ="X";
+            ply="X";
         }
+      check_game();
+    }
+    else if(choice == 2){
+      flags[x][y]="X";
+      buttons[x][y].innerHTML="X";
+      buttons[x][y].classList.add("X");
+
+      gameEnd = true;
+      for (let i = 0; i < 3; i++)
+        for (let j = 0; j < 3; j++)
+          if(flags[i][j] == null)
+            gameEnd = false;
+      check_game();
+      if (gameEnd == false){
+      var x2, y2;
+      while(true){
+      x2 = Math.floor(Math.random() * 3);
+      y2 = Math.floor(Math.random() * 3);
+      if (flags[x2][y2]==null) break
+    }
+    flags[x2][y2]="O";
+    buttons[x2][y2].innerHTML="O";
+    buttons[x2][y2].classList.add("O");
+    check_game();
+    }
+  }
     }
     else{
-        alert("wrong");
+        alert("play carefully ");
     }
-    check_game();
-    
+}
+else{
+  alert("Please press new game button!");
+}
 }
 var winx=0;
-var wino=0;
+//var wino=0;
 var active=true;
 function check_game(){
     if(flags[0][0]=="X" && flags [0][1]=="X" && flags [0][2]=="X"){
@@ -50,6 +96,7 @@ function check_game(){
         score_x_counter++;
         score_x.innerHTML=score_x_counter;
         winx++;
+        gameEnd = true;
        
     }
     
@@ -61,6 +108,7 @@ function check_game(){
         score_x_counter++;
         score_x.innerHTML=score_x_counter;
         winx++;
+        gameEnd = true;
         
     }
    
@@ -71,7 +119,7 @@ function check_game(){
         score_x_counter++;
         score_x.innerHTML=score_x_counter;
         winx++;
-        
+        gameEnd = true;
     }
     
   
@@ -81,6 +129,7 @@ function check_game(){
         score_x_counter++;
         score_x.innerHTML=score_x_counter;
         winx++;
+        gameEnd = true;
       
     }
     
@@ -90,6 +139,7 @@ function check_game(){
         score_x_counter++;
         score_x.innerHTML=score_x_counter;
         winx++;
+        gameEnd = true;
     }
     
    
@@ -99,6 +149,7 @@ function check_game(){
         score_x_counter++;
         score_x.innerHTML=score_x_counter;
         winx++;
+        gameEnd = true;
        
     }
     
@@ -108,6 +159,7 @@ function check_game(){
         score_x_counter++;
         score_x.innerHTML=score_x_counter;
         winx++;
+        gameEnd = true;
         
     }
     
@@ -117,7 +169,7 @@ function check_game(){
         score_x_counter++;
         score_x.innerHTML=score_x_counter;
         winx++;
-        
+        gameEnd = true;
     }
     //------------------------------------------------------------------------------------------
     if(flags[0][0]=="O" && flags [0][1]=="O" && flags [0][2]=="O"){
@@ -126,7 +178,7 @@ function check_game(){
         score_o_counter++;
         score_o.innerHTML=score_o_counter;
         wino++;
-        
+        gameEnd = true;
        
     }
     
@@ -138,7 +190,7 @@ function check_game(){
         score_o_counter++;
         score_o.innerHTML=score_o_counter;
         wino++;
-        
+        gameEnd = true;
         
     }
     
@@ -148,7 +200,7 @@ function check_game(){
         score_o_counter++;
         score_o.innerHTML=score_o_counter;
         wino++;
-       
+        gameEnd = true;
     }
     
     
@@ -157,7 +209,7 @@ function check_game(){
        score_o_counter++;
         score_o.innerHTML=score_o_counter;
         wino++;
-       
+        gameEnd = true;
     }
     
     
@@ -166,7 +218,7 @@ function check_game(){
       score_o_counter++;
         score_o.innerHTML=score_o_counter;
         wino++;
-      
+        gameEnd = true;
     }
     
     
@@ -175,7 +227,7 @@ function check_game(){
        score_o_counter++;
        score_o.innerHTML=score_o_counter;
         wino++;
-        
+        gameEnd = true;
     }
     
     
@@ -184,7 +236,7 @@ function check_game(){
        score_o_counter++;
        score_o.innerHTML=score_o_counter;
         wino++;
-      
+        gameEnd = true;
     }
     
     
@@ -192,7 +244,7 @@ function check_game(){
         document.getElementById("result").innerHTML="O Won";
         score_o_counter++;
         score_o.innerHTML=score_o_counter;
-     
+        gameEnd = true;
     }
     
     if((flags[0][0]=="X" || flags[0][0]=="O") && (flags[0][1]=="X" || flags[0][1]=="O")
@@ -203,6 +255,33 @@ function check_game(){
         document.getElementById("result").innerHTML="Match Draw";
         draw_counter++;
         draw.innerHTML=draw_counter;
+        gameEnd = true;
     }
     
 }
+
+function restart(){
+  //active=true;
+gameEnd = false;
+document.getElementById("result").innerHTML="result";
+document.getElementById("turn").innerHTML="";
+for(var i=0;i<8;i++){
+    for(var j=0;j<8;j++){
+        if(flags[i][j]=="X" | flags[i][j]=="O"){
+            if(ply=="X" | ply=="O"){
+
+                buttons[i][j].innerHTML="";
+                buttons[i][j].classList.remove("X");
+                buttons[i][j].classList.remove("O");
+                flags[i][j]=null;
+
+            }
+          }
+
+      }
+
+  document.getElementById
+  }
+
+
+}   

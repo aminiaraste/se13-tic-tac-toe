@@ -1,15 +1,67 @@
+.body{
+    background-image: linear-gradient( rgb(120, 44, 100),rgb(251, 117, 0))!important;
+    margin: 0;
+    height: 900px;
+    color: rgb(48, 29, 47);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+}
+.glass{
+     position: absolute;
+    width: 400px;
+    height: 500px;
+    margin-left: 500px;
+    margin-top: 50px;
+}
 .cell{
-    width: 40px;
-    height: 40px;
-    border-radius: 6px;
+    
+    width: 100px;
+    height: 100px;
     font-size: x-large;
+    margin: 15px;
+
+    /* From https://css.glass */
+    background:rgba(207, 199, 183, 0.438);
+    border-radius: 56px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.7px);
+    -webkit-backdrop-filter: blur(1.7px);
+    border: 0px solid rgba(255, 255, 255, 0.31);
+}
+.cell:active{
+    background:rgba(207, 199, 183, 0.438);
+    border-radius: 56px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.7px);
+    -webkit-backdrop-filter: blur(8.7px);
+    border: 0px solid rgba(255, 255, 255, 0.31);
 }
 .X{
-    background-color: pink;
-    color: red;
-
+    color: rgb(218, 76, 16);
+    font-size: 50px
 }
 .O{
-    background-color: skyblue;
-    color: darkblue ;
+    color: rgb(68, 18, 50) ;
+    font-size: 50px
+}
+#btn{
+    background-color: rgba(207, 199, 183, 0.438);
+    margin-top: 30px;
+    margin-bottom: 10px;
+    height: 40px;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+}
+#turn{
+    position: absolute;
+    margin-left: 640px;
+    color: rgb(201, 175, 175);
+}
+#result{
+    margin-top: 30px;
+     font-size: 50px;
+      margin-bottom: 0px;
+      margin-right: 50px;
+      color: rgb(201, 175, 175);
 }
