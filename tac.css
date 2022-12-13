@@ -11,18 +11,17 @@
     width: 400px;
     height: 500px;
     margin-left: 500px;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 .cell{
     
     width: 100px;
     height: 100px;
     font-size: x-large;
-    margin: 15px;
-
+    margin: 0.1px;
     /* From https://css.glass */
     background:rgba(207, 199, 183, 0.438);
-    border-radius: 56px;
+    
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(1.7px);
     -webkit-backdrop-filter: blur(1.7px);
@@ -30,14 +29,14 @@
 }
 .cell:active{
     background:rgba(207, 199, 183, 0.438);
-    border-radius: 56px;
+    margin: 0.1px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(8.7px);
     -webkit-backdrop-filter: blur(8.7px);
     border: 0px solid rgba(255, 255, 255, 0.31);
 }
 .X{
-    color: rgb(218, 76, 16);
+    color: rgb(165, 79, 42);
     font-size: 50px
 }
 .O{
